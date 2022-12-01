@@ -1,0 +1,211 @@
+@import "@/styles/mixins";
+
+html,
+body {
+  height: auto;
+  width: auto;
+  min-height: 100%;
+}
+
+html {
+  font-size: 18px;
+  @media (max-width: $lg-max-width) {
+    font-size: 16px;
+  }
+  @media (max-width: $sm-max-width) {
+    font-size: 15px;
+  }
+}
+
+body {
+  font-family: $base-font-family;
+  color: $text;
+  overflow-x: hidden;
+  position: relative;
+  position: relative;
+
+  * {
+    font-variant: normal !important;
+    font-feature-settings: normal !important;
+    font-variant-numeric: normal !important;
+  }
+
+  // &:before {
+  //   content: "";
+  //   display: block;
+  //   position: absolute;
+  //   z-index: -1;
+  //   pointer-events: none;
+  //   top: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   right: 0;
+  //   opacity: 0.1;
+  //   background: transparent repeat url(/resources/pattern.svg) top center;
+  //   background-size: 400px 400px;
+  // }
+}
+
+a,
+.link {
+  text-decoration: none;
+  color: $blue;
+  cursor: pointer;
+
+  @include transition-color();
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $blue-light;
+    text-decoration: none;
+  }
+}
+
+.link {
+  &--dashed {
+    border-bottom: 1px dashed $primary;
+
+    &:hover {
+      border-color: $blue-light;
+    }
+  }
+}
+
+input {
+  outline: none !important;
+  font-family: $base-font-family;
+  color: $text;
+}
+
+button,
+input {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+strong {
+  font-weight: 700;
+
+  &.bolder {
+    font-weight: 900;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $dark;
+  margin-bottom: rem(20);
+  font-weight: 900;
+}
+
+h1 {
+  font-size: rem(42);
+}
+
+h2 {
+  font-size: rem(36);
+}
+
+h5 {
+  font-size: rem(21);
+}
+
+p {
+  margin-bottom: rem(20);
+}
+
+ul {
+  padding-left: rem(30);
+
+  li {
+    margin-bottom: rem(8);
+  }
+}
+
+sup {
+  font-size: 60%;
+  font-weight: normal !important;
+}
+
+[role="button"] {
+  outline: none;
+}
+
+::placeholder {
+  color: $gray-4 !important;
+}
+
+code {
+  display: inline-block;
+  padding: 0 rem(7);
+  background: $gray-2;
+  border-radius: 20px;
+  font-size: 80%;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// disable transitions
+[data-disable-transitions="true"] {
+  * {
+    transition: none !important;
+  }
+}
+
+@media (pointer:none), (pointer:coarse) {
+  [data-aos^=fade][data-aos^=fade],
+  [data-aos=fade-down],
+  [data-aos=fade-up] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+// dark theme
+[data-theme="dark"] {
+  body {
+    background: $dark-gray-6;
+    color: $dark-gray-2;
+
+    &:before {
+      opacity: 0.07;
+      background: transparent repeat url(/resources/pattern-white.svg) top
+        center;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $white;
+  }
+
+  a,
+  .link {
+    color: $blue-light;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $white;
+    }
+  }
+
+  ::placeholder {
+    color: $dark-gray-3 !important;
+  }
+
+  code {
+    background: $dark-gray-3;
+  }
+}
